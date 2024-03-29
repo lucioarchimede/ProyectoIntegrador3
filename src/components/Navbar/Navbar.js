@@ -7,7 +7,7 @@ function Navbar(props){
         <nav>
             <ul className="main-nav">
                 { 
-                    props.elementosMenu.map((unMenu, idx)=> <li>{unMenu}</li>)
+                    props.elementosMenu.map((unMenu, idx)=> <li key={idx} >{unMenu}</li>)
                     
                 }
             </ul>

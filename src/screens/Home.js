@@ -1,11 +1,17 @@
 import { Component } from "react";
 import PelisPopular from "../components/PelisPopular/PelisPopular"
-import PelisPopularCard from "../components/PelisPopularCard/PelisPopularCard";
 
 
 
 
 const info = [
+  {
+    titulo: "Interstellar",
+    año: 2014,
+    descripcion: "Un equipo de exploradores viaja a través de un agujero de gusano en el espacio en un intento de asegurar la supervivencia de la humanidad.",
+    imagen: "interestellar.jpg",
+    extra:"genero",
+  },
   {
     titulo: "Inception",
     año: 2010,
@@ -20,13 +26,7 @@ const info = [
     imagen: "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
     extra:"genero",
   },
-  {
-    titulo: "Interstellar",
-    año: 2014,
-    descripcion: "Un equipo de exploradores viaja a través de un agujero de gusano en el espacio en un intento de asegurar la supervivencia de la humanidad.",
-    imagen: "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
-    extra:"genero",
-  },
+ 
   {
     titulo: "The Shawshank Redemption",
     año: 1994,
@@ -53,7 +53,7 @@ class Home extends Component {
 
           <h2>Peliculas populares</h2>
           <PelisPopular info={info} />
-          <PelisPopularCard />
+          {/* <PelisPopularCard /> */}
 
         </main>
       </>
