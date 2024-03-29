@@ -1,0 +1,10 @@
+.container--pelis{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap:16px
+}
+
+.container--pelis img {
+    width: 100%;
+}
