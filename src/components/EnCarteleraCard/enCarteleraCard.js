@@ -59,9 +59,7 @@ class EnCarteleraCard extends Component {
          <Link to={"/detail/id/" + this.props.data.id}>
                 Ver detalle
             </Link>
-            
-
-            <Link to={"/detail/id/" + this.props.data.id}>
+            <Link to={"/favoritos/id/" + this.props.data.id}>
                 Agregar Favoritos
             </Link>
 

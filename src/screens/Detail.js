@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import DetailCard from '../components/DetailCard/detailCard'
 
 export default class Detail extends Component {
     constructor(props){
@@ -7,8 +8,13 @@ export default class Detail extends Component {
   render() {
     let id = this.props.match.params.id
     return (
-      <div>Detail of {id}</div>
-      
+      <main>
+
+     
+      <div>Detail of {}</div>
+      <DetailCard />
+      </main>
+
     )
   }
 }

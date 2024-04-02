@@ -46,6 +46,7 @@ class PelisPopular extends Component {
 
                 <section className='container--pelis'>
                     {
+                    
                         this.state.lista.map((elm, idx) =>
                             idx < 5 ?
                                 <div key={idx}>

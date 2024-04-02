@@ -12,11 +12,11 @@ class Home extends Component {
 
           <h2>Peliculas populares</h2>
           <PelisPopular />
-          
 
           <h2>Peliculas en Cartelera </h2>
           <EnCartelera />
-          
+
+
 
         </main>
       </>
