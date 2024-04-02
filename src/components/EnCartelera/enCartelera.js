@@ -1,18 +1,15 @@
 import React, { Component } from 'react'
-import PelisPopularCard from "../PelisPopularCard/PelisPopularCard"
-import './style.css'
+import EnCarteleraCard from '../EnCarteleraCard/enCarteleraCard';
 
 
 
 
-
-class PelisPopular extends Component {
+class EnCartelera extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            //   contenidoOculto: true,
-            //   botonTexto: 'Mostrar contenido',
-            lista: [],
+            
+            enCartel: []
         }
         // console.log('Soy el constructor')
     }
@@ -20,7 +17,7 @@ class PelisPopular extends Component {
     componentDidMount() {
         const fetch = require('node-fetch');
 
-        const url = 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
+        const url = 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1';
         const options = {
             method: 'GET',
             headers: {
@@ -34,10 +31,11 @@ class PelisPopular extends Component {
             .then(json => {
                 console.log(json)
                 // this.state.lista=json
-                this.setState({ lista: json.results })
+                this.setState({ enCartel: json.results })
             })
             .catch(err => console.error('error:' + err));
     }
+
 
     render() {
         return (
@@ -46,18 +44,20 @@ class PelisPopular extends Component {
 
                 <section className='container--pelis'>
                     {
-                        this.state.lista.map((elm, idx) =>
+                        this.state.enCartel.map((elm, idx) =>
                             idx < 5 ?
                                 <div key={idx}>
-                                    <PelisPopularCard data={elm} />
+
+                                    < EnCarteleraCard data={elm} />
+                                    
                                 </div> : " ")
                     }
                 </section>
 
-                
             </>
         )
     }
 }
 
-export default PelisPopular
+
+export default EnCartelera
