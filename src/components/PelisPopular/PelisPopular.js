@@ -3,9 +3,6 @@ import PelisPopularCard from "../PelisPopularCard/PelisPopularCard"
 import './style.css'
 
 
-
-
-
 class PelisPopular extends Component {
     constructor(props) {
         super(props)

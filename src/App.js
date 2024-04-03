@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/footer"
 import Buscador from "./components/Buscador/buscador";
 import Detail from "./screens/Detail";
+import ListadoPeliculas from "./screens/ListadoPeliculas";
 
 
 function App() {
@@ -26,6 +27,8 @@ function App() {
     <Switch>
     <Route path="/" exact={true} component={Home} />
     <Route path='/detail/id/:id' component={Detail} />
+    <Route path='/populares/' component={ListadoPeliculas} />
+    <Route path='/cartelera/' component={ListadoPeliculas} />
 
     </Switch>
     
