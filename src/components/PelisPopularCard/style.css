@@ -1,0 +1,62 @@
+.card-pelis {
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.3s ease;
+  }
+  
+  .card-pelis:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card-pelis img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-pelis h2 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  .card-pelis p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #666;
+  }
+  
+  .card-pelis button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .card-pelis button:hover {
+    background-color: #0056b3;
+  }
+  
+  .card-pelis a {
+    display: block;
+    color: #007bff;
+    text-decoration: none;
+    margin-top: 10px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .card-pelis a:hover {
+    color: #0056b3;
+  }
+  

@@ -47,7 +47,10 @@ class PelisPopularCard extends Component {
     return (
       <div className='card-pelis'>
          <img src={this.props.data.poster_path} alt="" />
-        <img src={`https://image.tmdb.org/t/p/w342/${this.props.data.poster_path}`} alt={`${this.props.data.original_title}`} />
+        <img src={`https://image.tmdb.org/t/p/w342/${this.props.data.poster_path}`}/>
+        <h2>
+        {this.props.data.original_title}
+        </h2>
 
         
         {

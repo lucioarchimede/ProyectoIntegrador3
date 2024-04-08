@@ -14,7 +14,7 @@ class Home extends Component {
           <h2>Peliculas populares</h2>
           <PelisPopular />
           <Link to={"/populares/"}>
-                Ver detalle
+                Ver TODAS
             </Link>
             
 

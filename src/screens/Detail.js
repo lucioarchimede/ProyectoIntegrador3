@@ -43,13 +43,14 @@ export default class Detail extends Component {
 
 
         <div>
-          {this.state.pelicula.poster_path}
+          <img src={`https://image.tmdb.org/t/p/w342/${this.state.pelicula.poster_path}`} />
+
         </div>
 
         <h3>{this.state.pelicula.original_title}</h3>
      
 
-        <div>Calificacion:{this.state.pelicula.rating}
+        <div>Calificacion:{this.state.pelicula.vote_average}
         </div>
 
         <div>
@@ -72,3 +73,7 @@ export default class Detail extends Component {
     )
   }
 }
+
+
+
+
