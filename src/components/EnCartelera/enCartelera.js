@@ -15,8 +15,6 @@ class EnCartelera extends Component {
     }
 
     componentDidMount() {
-        const fetch = require('node-fetch');
-
         const url = 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1';
         const options = {
             method: 'GET',

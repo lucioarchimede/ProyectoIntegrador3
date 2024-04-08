@@ -15,8 +15,6 @@ class PelisPopular extends Component {
     }
 
     componentDidMount() {
-        const fetch = require('node-fetch');
-
         const url = 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
         const options = {
             method: 'GET',

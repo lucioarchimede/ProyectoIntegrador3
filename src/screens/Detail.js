@@ -13,7 +13,6 @@ export default class Detail extends Component {
   }
 
   componentDidMount() {
-    const fetch = require('node-fetch');
 
     const url = 'https://api.themoviedb.org/3/movie/' + this.props.match.params.id + 'language=en-US'
     const options = {
