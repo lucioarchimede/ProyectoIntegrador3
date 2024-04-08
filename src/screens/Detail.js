@@ -37,27 +37,6 @@ export default class Detail extends Component {
       .catch(err => console.error('error:' + err));
   }
 
-
-
-
-
-
-
-  // componentDidMount() {
-  //   console.log("props" + JSON.stringify(this.props));
-  //   fetch('https://api.themoviedb.org/3/movie/popular/' + this.props.match.params.id)
-  //     .then(resp => resp.json())
-  //     .then(data => {
-  //       console.log(data)
-  //       this.setState({
-  //         peliculas: data.results,
-  //         page: this.state.page + 1
-  //       })
-  //     })
-  //     .catch(err => console.log(err))
-  // }
-
-
   render() {
     // let id = this.props.match.params.id
     return (

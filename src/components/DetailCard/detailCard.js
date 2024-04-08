@@ -10,7 +10,7 @@ class DetailCard extends Component {
         return (
         <article className=''>
             <Link to={"/detail/id/" + this.props.data.id}>
-                <img src={this.props.data.poster_path} alt="" />
+            <img src={`https://image.tmdb.org/t/p/w342/${this.props.data.poster_path}`} />
             </Link>
             <h2>{this.props.data.original_title}</h2> 
             <p>{this.props.data.release_date}</p> 
