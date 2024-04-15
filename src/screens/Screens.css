@@ -1,0 +1,64 @@
+h1{
+  margin-left: 3vw;
+  color: aliceblue;
+  font-family:"Outfit";
+  font-weight: bolder;
+}
+
+h2{
+  margin-top: 0;
+  margin-left: 3vw;
+  color: black;
+  font-family:"Outfit";
+  font-weight: bolder;
+  
+}
+
+h3 {
+  margin-top: 0;
+  margin-left: 3vw;
+  color: aliceblue;
+  font-family: 'Outfit';
+  font-size: 2vw;
+}
+
+
+.tituloResult{
+  margin-left: 0vw;
+  color: aliceblue;
+  font-family: 'Outfit';
+  font-size: 2vw;
+  font-weight: bold;
+  background-color:rgba(0, 0, 0, 0.252) ;
+  padding: 1vw 1vw 1vw 2vw;
+  
+}
+.titulosHome{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.titulo{
+  margin-right: 15px;
+}
+u{
+  color: rgb(187, 141, 233);
+}
+/* POSTER */
+.containerPoster{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+.posterEstreno{
+  width: 100vw
+}
+
+
+@media (hover: hover){
+  .pelicula:hover{
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 5px 5px 0px rgba(0, 0, 0, .2);
+  }
+}

@@ -9,6 +9,7 @@ import Detail from "./screens/Detail";
 import ListadoPeliculas from "./screens/ListadoPeliculas";
 
 
+
 function App() {
 
 

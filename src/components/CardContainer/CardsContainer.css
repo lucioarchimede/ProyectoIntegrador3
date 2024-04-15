@@ -1,0 +1,8 @@
+/* CONTENEDOR PADRE */
+.containerCards{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  min-height: 28vh;
+  justify-content:space-evenly;
+}
