@@ -8,6 +8,9 @@ import Buscador from "./components/Buscador/buscador";
 import Detail from "./screens/Detail";
 import ListadoEnCartelera from "./screens/ListadoEnCartelera";
 import ListadoTopRated from "./screens/ListadoTopRated";
+import Favoritos from "./screens/Favoritos";
+import Notfound from "./screens/Notfound";
+
 
 
 
@@ -31,6 +34,8 @@ function App() {
     <Route path='/detail/id/:id' component={Detail} />
     <Route path='/top_rated/' component={ListadoTopRated} />
     <Route path='/cartelera/' component={ListadoEnCartelera} />
+    <Route path="/favoritos" component={Favoritos}/>
+    <Route path="" component={Notfound}/>
 
     </Switch>
     

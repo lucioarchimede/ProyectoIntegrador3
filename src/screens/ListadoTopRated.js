@@ -3,6 +3,7 @@ import CardsContainer from "../components/CardContainer/CardsContainer";
 import PelisPopularCard from "../components/PelisPopularCard/PelisPopularCard";
 import EnCartelera from "../components/EnCartelera/enCartelera";
 import { Link } from "react-router-dom";
+import Loader from "../components/Loader/Loader";
 
 class ListadoTopRated extends Component {
   constructor(props) {

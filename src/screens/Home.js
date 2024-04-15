@@ -2,8 +2,9 @@ import { Component } from "react";
 import PelisPopular from "../components/PelisPopular/PelisPopular";
 import EnCartelera from "../components/EnCartelera/enCartelera";
 import { Link } from "react-router-dom";
-import CardsContainer from "../components/CardContainer/CardsContainer";
+import CardContainer from "../components/CardContainer/CardsContainer";
 import './Screens.css'
+import Loader from "../components/Loader/Loader";
 
 class Home extends Component {
   constructor(props) {
@@ -58,14 +59,16 @@ class Home extends Component {
         <main>
           <h2>Peliculas populares</h2>
           <div className="titulosHome">
-          <CardsContainer infoMovies={this.state.popular} />
+          <CardContainer infoMovies={this.state.popular} />
           <Link to={"/top_rated/"}>Ver TODAS</Link>
+         
           </div>
+          
 
 
           <h2>Peliculas en Cartelera </h2>
           <div className="titulosHome">
-          <CardsContainer infoMovies={this.state.EnCartelera} />
+          <CardContainer infoMovies={this.state.EnCartelera} />
           <Link to={"/cartelera/"}>Ver todas</Link>
           </div>
 

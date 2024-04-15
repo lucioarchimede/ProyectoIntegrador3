@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import DetailCard from '../components/DetailCard/detailCard'
+import { Link } from "react-router-dom";
+import Loader from '../components/Loader/Loader';
+
 
 export default class Detail extends Component {
   constructor(props) {
@@ -67,6 +70,9 @@ export default class Detail extends Component {
         <div>
           Genero: {this.state.pelicula.genre}
         </div>
+        <Link to={"/favoritos/id/" + this.props.data}>
+                Aregar Favoritos
+            </Link>
 
       </main>
 
