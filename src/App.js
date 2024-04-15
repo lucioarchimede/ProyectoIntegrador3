@@ -6,7 +6,8 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/footer"
 import Buscador from "./components/Buscador/buscador";
 import Detail from "./screens/Detail";
-import ListadoPeliculas from "./screens/ListadoPeliculas";
+import ListadoEnCartelera from "./screens/ListadoEnCartelera";
+import ListadoTopRated from "./screens/ListadoTopRated";
 
 
 
@@ -28,8 +29,8 @@ function App() {
     <Switch>
     <Route path="/" exact={true} component={Home} />
     <Route path='/detail/id/:id' component={Detail} />
-    <Route path='/populares/' component={ListadoPeliculas} />
-    <Route path='/cartelera/' component={ListadoPeliculas} />
+    <Route path='/top_rated/' component={ListadoTopRated} />
+    <Route path='/cartelera/' component={ListadoEnCartelera} />
 
     </Switch>
     

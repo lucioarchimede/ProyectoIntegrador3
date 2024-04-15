@@ -59,7 +59,7 @@ class Home extends Component {
           <h2>Peliculas populares</h2>
           <div className="titulosHome">
           <CardsContainer infoMovies={this.state.popular} />
-          <Link to={"/populares/"}>Ver TODAS</Link>
+          <Link to={"/top_rated/"}>Ver TODAS</Link>
           </div>
 
 
