@@ -7,7 +7,7 @@ import Footer from "./components/Footer/footer"
 import Buscador from "./components/Buscador/buscador";
 import Detail from "./screens/Detail";
 import ListadoEnCartelera from "./screens/ListadoEnCartelera";
-import ListadoTopRated from "./screens/ListadoTopRated";
+import ListadoPopulares from "./screens/ListadoPopulares"
 import Favoritos from "./screens/Favoritos";
 import Notfound from "./screens/Notfound";
 
@@ -32,9 +32,9 @@ function App() {
     <Switch>
     <Route path="/" exact={true} component={Home} />
     <Route path='/detail/id/:id' component={Detail} />
-    <Route path='/top_rated/' component={ListadoTopRated} />
+    <Route path='/populares/' component={ListadoPopulares} />
     <Route path='/cartelera/' component={ListadoEnCartelera} />
-    <Route path="/favoritos" component={Favoritos}/>
+    <Route path="/favoritos/id/:id" component={Favoritos}/>
     <Route path="" component={Notfound}/>
 
     </Switch>

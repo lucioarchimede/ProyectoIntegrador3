@@ -1,6 +1,4 @@
 import { Component } from "react";
-import PelisPopular from "../components/PelisPopular/PelisPopular";
-import EnCartelera from "../components/EnCartelera/enCartelera";
 import { Link } from "react-router-dom";
 import CardContainer from "../components/CardContainer/CardsContainer";
 import './Screens.css'
@@ -36,8 +34,7 @@ class Home extends Component {
       })
       .catch((err) => console.error("error:" + err));
     fetch(
-      "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1" +
-        (this.state.page + 1),
+      "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
       options
     )
       .then((resp) => resp.json())
@@ -46,7 +43,7 @@ class Home extends Component {
         this.setState({
           popular: data.results,
         });
-        // console.log('popular: ', data.results.length)
+  
       })
       .catch((err) => console.log(err));
     console.log("fin populares");
@@ -59,17 +56,26 @@ class Home extends Component {
         <main>
           <h2>Peliculas populares</h2>
           <div className="titulosHome">
-          <CardContainer infoMovies={this.state.popular} />
-          <Link to={"/top_rated/"}>Ver TODAS</Link>
-         
+            {this.state.popular.length === 0 ?
+              < Loader /> :
+              <>
+                <CardContainer infoMovies={this.state.popular} />
+                <Link to={"/populares/"}>Ver TODAS</Link>
+              </>}
+
+
           </div>
-          
+
 
 
           <h2>Peliculas en Cartelera </h2>
           <div className="titulosHome">
-          <CardContainer infoMovies={this.state.EnCartelera} />
-          <Link to={"/cartelera/"}>Ver todas</Link>
+          {this.state.popular.length === 0 ?
+              < Loader /> :
+              <>
+            <CardContainer infoMovies={this.state.EnCartelera} />
+            <Link to={"/cartelera/"}>Ver todas</Link>
+            </>}
           </div>
 
         </main>

@@ -1,18 +1,15 @@
 import React, { Component } from 'react'
-import DetailCard from '../components/DetailCard/detailCard'
 import { Link } from "react-router-dom";
-import Loader from '../components/Loader/Loader';
 
 
 export default class Detail extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      //   contenidoOculto: true,
-      //   botonTexto: 'Mostrar contenido',
+
       pelicula: {},
     }
-    // console.log('Soy el constructor')
+
   }
 
   componentDidMount() {
@@ -30,7 +27,6 @@ export default class Detail extends Component {
       .then(res => res.json())
       .then(json => {
         console.log(json)
-        // this.state.lista=json
         this.setState({
           pelicula: json,
           page: this.state.page + 1
@@ -40,14 +36,15 @@ export default class Detail extends Component {
   }
 
   render() {
-    // let id = this.props.match.params.id
     return (
       <main>
+         
 
 
         <div>
+       
           <img src={`https://image.tmdb.org/t/p/w342/${this.state.pelicula.poster_path}`} />
-
+     
         </div>
 
         <h3>{this.state.pelicula.original_title}</h3>
@@ -70,9 +67,11 @@ export default class Detail extends Component {
         <div>
           Genero: {this.state.pelicula.genre}
         </div>
+        
         <Link to={"/favoritos/id/" + this.props.data}>
                 Aregar Favoritos
             </Link>
+            
 
       </main>
 

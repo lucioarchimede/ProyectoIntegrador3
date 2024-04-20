@@ -11,10 +11,9 @@ class PelisPopularCard extends Component {
       contenidoOculto: true,
       botonTexto: 'Ver descripcion'
     }
-    // console.log('Soy el constructor')
   }
   componentDidMount() {
-    console.log('Soy el componentDidMount')
+    console.log('Soy el componentDidMount pelisPopularCard' )
 
 
   }
@@ -24,7 +23,6 @@ class PelisPopularCard extends Component {
     }
   }
   componentWillUnmount() {
-    // console.log('Soy el willUnmount')
   }
 
   ocultarYMostrarContenido() {
@@ -47,7 +45,7 @@ class PelisPopularCard extends Component {
     return (
       <div className='card-pelis'>
          <img src={this.props.data.poster_path} alt="" />
-        <img src={`https://image.tmdb.org/t/p/w342/${this.props.data.poster_path}`}/>
+        <img alt="" src={`https://image.tmdb.org/t/p/w342/${this.props.data.poster_path}`}/>
         <h2>
         {this.props.data.original_title}
         </h2>

@@ -1,58 +1,85 @@
 import React, { Component } from "react";
 import CardsContainer from "../components/CardContainer/CardsContainer";
-import PelisPopularCard from "../components/PelisPopularCard/PelisPopularCard";
-import Loader from "../components/Loader/Loader";
+
+
 
 
 class Favoritos extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       PelisFav: [],
+      id: this.props.match.params.id,
+      pelicula: {}
     };
   }
+
 
   componentDidMount() {
     // MOVIES
     // Recupero el localStorage 
-    let favoritosMovie = []
+    let listaFavoritos = []
     let recuperoStorage = localStorage.getItem('favoritosMovie');
-
+    console.log("REcupero storage ", recuperoStorage);
     if (recuperoStorage != null) {
-      favoritosMovie = JSON.parse(recuperoStorage);
+      listaFavoritos = JSON.parse(recuperoStorage);
+
     }
+    listaFavoritos.push(this.state.id)
+    localStorage.setItem("favoritosMovie", JSON.stringify(listaFavoritos))
+    console.log("pelis Fav" + listaFavoritos);
+
 
     // MOVIES EN FAVORITOS
-    fetch('https://api.themoviedb.org/3/movie/language=en-US')
-      .then((response) => response.json())
-      .then((data) => {
-        let PelisFav = data.results.filter((contenido) => {
-          return favoritosMovie.includes(contenido.id)
-        })
-        this.setState({
-          PelisFav: PelisFav
-        })
+    const options = {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzk3MTBiYjhkMjU2ZmEyYTI0ZDI0ZGRlODlkYWUzMyIsInN1YiI6IjY2MDZkMzQwNTkwMDg2MDE3Y2I3NjgwOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.oK44zq8dZ4DI3itac_GAI9Bqfcjn_fexUV70dtCVwjY",
+      },
+    };
+    const url =
+      "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1";
+
+    fetch(url, options)
+      .then((res) => res.json())
+      .then((json) => {
+        console.log(json.results);
+        let filtro = []
+
+            json.results.forEach(element => {
+              
+            if (listaFavoritos.includes(""+element.id)) {
+              filtro.push(element)
+            }
+          })
+
+        this.setState({ PelisFav: filtro });
+
+
       })
-      .catch((error) => console.log("El error es: " + error));
+      .catch((err) => console.error("error:" + err));
   }
 
 
   render() {
-    console.log(this.state.PelisFav);
     return (
+      
       <React.Fragment>
+         
         <main className="">
+      
           <h2>MOVIES</h2>
-          {this.state.PelisFav.length > 0 ? (
-            <div className="">
-              {this.state.PelisFav.map((pelicula) => (<CardsContainer key={pelicula.id} pelicula={pelicula} />))}
-            </div>
-          ) : (
-            <h3 className="">Agrega una película a tus favoritos</h3>
-          )}
+          <h3 className="container">Agrega una película a tus favoritos</h3>
+          <CardsContainer infoMovies={this.state.PelisFav} />
+      
+
+
 
         </main>
       </React.Fragment>
+       
 
     )
   }
