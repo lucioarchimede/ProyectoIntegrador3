@@ -4,7 +4,7 @@ import {Switch,Route} from 'react-router-dom'
 import Home from "./screens/Home";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/footer"
-import Buscador from "./components/Buscador/buscador";
+import SearchResults from "./components/SearchResults/SearchResults";
 import Detail from "./screens/Detail";
 import ListadoEnCartelera from "./screens/ListadoEnCartelera";
 import ListadoTopRated from "./screens/ListadoTopRated";
@@ -25,7 +25,7 @@ function App() {
   return (
     <React.Fragment>
     <Navbar elementosMenu={menu}/>
-    <Buscador />
+    <SearchResults />
     <Switch>
     <Route path="/" exact={true} component={Home} />
     <Route path='/detail/id/:id' component={Detail} />
