@@ -13,7 +13,7 @@ function Navbar(){
                     <p>
                     /   
                     </p>
-                    <Link to={`/favoritos`}>  FAVORITOS  </Link>  
+                    <Link to={`/favoritos/id/:id`}>  FAVORITOS  </Link>  
                     </ul>
 
                     <ul className="containerHeader">
