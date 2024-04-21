@@ -17,13 +17,14 @@ class CardsContainer extends Component {
           ? this.props.infoMovies.map((pelicula, idx) => {
               if (idx < 5) {
                 return (
-                  <section className="container--pelis">
+                  <section className="container--pelis" key={idx}>
                     {<PelisPopularCard data={pelicula} />}
                   </section>
                 );
               }
             })
           : false}
+          
       </section>
     );
   }

@@ -11,7 +11,6 @@ class EnCartelera extends Component {
             
             enCartel: []
         }
-        // console.log('Soy el constructor')
     }
 
     componentDidMount() {

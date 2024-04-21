@@ -7,11 +7,9 @@ class PelisPopular extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            //   contenidoOculto: true,
-            //   botonTexto: 'Mostrar contenido',
+      
             lista: [],
         }
-        // console.log('Soy el constructor')
     }
 
     componentDidMount() {

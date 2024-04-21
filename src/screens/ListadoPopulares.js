@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import CardsContainer from "../components/CardContainer/CardsContainer";
 import PelisPopularCard from "../components/PelisPopularCard/PelisPopularCard";
-import EnCartelera from "../components/EnCartelera/enCartelera";
-import { Link } from "react-router-dom";
+import Loader from "../components/Loader/Loader";
 
 class ListadoTopRated extends Component {
   constructor(props) {
@@ -25,19 +23,18 @@ class ListadoTopRated extends Component {
       },
     };
     const url =
-      "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1";
+      "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1";
 
     fetch(url, options)
       .then((res) => res.json())
       .then((json) => {
         console.log(json);
-        // this.state.lista=json
         this.setState({ EnCartelera: json.results });
         console.log("enCartelerea: ", json.results.length);
       })
       .catch((err) => console.error("error:" + err));
     fetch(
-      "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1" ,
+      "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1" ,
         
       options
     )
@@ -47,31 +44,20 @@ class ListadoTopRated extends Component {
         this.setState({
           popular: data.results,
         });
-        // console.log('popular: ', data.results.length)
       })
       .catch((err) => console.log(err));
     console.log("fin populares");
     console.log("continuar");
   }
 
-  // traerMasPeliculas() {
-  //   fetch(
-  //     "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1" +
-  //       (this.state.page + 1)
-  //   )
-  //     .then((resp) => resp.json())
-  //     .then((data) =>
-  //       this.setState({
-  //         page: this.state.page + 1,
-  //         peliculas: this.state.peliculas.concat(data.results),
-  //       })
-  //     )
-  //     .catch((err) => console.log(err));
-  // }
 
   render() {
     return (
       <section className="containerCards">
+          {this.state.popular.length === 0 ?
+              < Loader /> :
+              <>
+        
         {this.state.popular
           ? this.state.popular.map((pelicula, idx) => {
               
@@ -83,6 +69,7 @@ class ListadoTopRated extends Component {
               
             })
           : false}
+          </>}
       </section>
     );
   }

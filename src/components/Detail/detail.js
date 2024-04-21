@@ -27,16 +27,6 @@ class Detail extends Component {
       .catch(err => console.log(err))
   }
 
-  // traerMasPeliculas() {
-  //   fetch("https://api.themoviedb.org/3/movie/popular?language=en-US&page=1" + (this.state.page + 1))
-  //     .then(resp => resp.json())
-  //     .then(data => this.setState({
-  //       page: this.state.page + 1,
-  //       peliculas: this.state.peliculas.concat(data.results)
-  //     }))
-  //     .catch(err => console.log(err))
-  // }
-
 
 
   render() {
@@ -52,11 +42,6 @@ class Detail extends Component {
               <h1>Cargando</h1>
           }
         </div>
-        {/* <div>
-          <button onClick={() => this.traerMasPeliculas()}>
-            Mas Peliculas
-          </button>
-        </div> */}
 
       </div>
     )

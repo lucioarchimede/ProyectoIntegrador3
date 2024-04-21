@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import CardsContainer from "../components/CardContainer/CardsContainer";
 import PelisPopularCard from "../components/PelisPopularCard/PelisPopularCard";
-import EnCartelera from "../components/EnCartelera/enCartelera";
-import { Link } from "react-router-dom";
+
+
 
 class ListadoEnCartelera extends Component {
   constructor(props) {
@@ -36,6 +35,9 @@ class ListadoEnCartelera extends Component {
         console.log("enCartelerea: ", json.results.length);
       })
       .catch((err) => console.error("error:" + err));
+
+
+
     fetch(
       "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1" ,
         
@@ -59,6 +61,7 @@ class ListadoEnCartelera extends Component {
   render() {
     return (
       <section className="containerCards">
+        
         {this.state.popular
           ? this.state.popular.map((pelicula, idx) => {
               
@@ -70,6 +73,7 @@ class ListadoEnCartelera extends Component {
               
             })
           : false}
+           
       </section>
     );
   }
