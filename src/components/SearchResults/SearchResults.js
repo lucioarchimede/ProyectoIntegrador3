@@ -1,49 +1,36 @@
 import React, {Component} from "react"
-import "./style.css"
+import './style.css'
+import { Link } from "react-router-dom";
 
-class Search extends Component {
-    constructor(props) {
+class Search extends Component{
+    constructor(props){
         super(props);
         this.state = {
-          valorInput: "",
-          peliculas: [],
-        };
+            value: '',
+            result: []
+        }
+    }
+    detenerDefault(evento) {
+        evento.preventDefault();
       }
-
-detenerDefault(evento) {
-    evento.preventDefault();
-    this.props.history.push('/busqueda/'+this.state.valorInput)
-  }
-
-  guardarInput(evento) {
-    this.setState(
-      {
-        valorInput: evento.target.value,
-      }
-    );
-  }
-
-render() {
-    return (
-      <div className="search-container">
-      <form onSubmit={(evento) => this.detenerDefault(evento)}>
-        <input
-        className="search-input"
-          type="text"
-          onChange={(evento) => this.guardarInput(evento)}
-          value={this.state.valorInput}
-          placeholder="Buscar..."
-        />
-        <i className="fas fa-search search-icon"></i>
-      
-        {console.log(this.state.valorInput)}
-      </form>
-      </div>
-    );
-  }
-
-
+    
+    
+    saveInput(event){
+        this.setState({value: event.target.value})
+    }
+    render(){
+        return(
+            <div class="wrap" onSubmit={(evento) => this.detenerDefault(evento)}>
+              <div class="search">
+                  <input type="text" class="searchTerm" placeholder="Ingresa el titulo de la peli..." onChange={(evento) => this.saveInput(evento)}
+          value={this.state.value}/>
+                  <Link to={`/busqueda/${this.state.value}`}><button type="submit" class="searchButton">
+                    <i class="fa fa-search"></i>
+                </button>
+                </Link>
+              </div>
+            </div>
+        )
+    }
 }
-
-
-export default Search
+export default Search;

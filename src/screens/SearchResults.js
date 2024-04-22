@@ -1,37 +1,41 @@
-import React from 'react';
-import { Component} from 'react';
-import Search from '../components/SearchResults/SearchResults';
-import CardsContainer from '../components/CardContainer/CardsContainer';
+import React, { Component } from "react";
+import CardsContainer from "../components/CardContainer/CardsContainer";
+import "./Screens.css"
 
 class ScreenSearch extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-          valorInput: "",
-          peliculas: [],
-          favoritos: localStorage.getItem('favoritos') !== null? localStorage.getItem('favoritos') : []
-        };
-      }
+  constructor(props) {
+    super(props);
+    this.state = {
+        result:[]
+    };
+  }
 
-      componentDidMount () {
-        fetch(`https://api.themoviedb.org/3/search/movie?query=${this.props.match.params.busqueda}&api_key=7384aa0b23ce68ba408f9921ee711e62`)
-        .then(res => res.json())
-        .then( data  => this.setState({ peliculas: data.results}))
-        .then( e => console.log(e))
-    
+  componentDidMount() {
+    fetch(`https://api.themoviedb.org/3/search/movie?query=${this.props.match.params.query}`)
+            .then(response => response.json())
+            .then(data => this.setState(
+                { result: data.results }
+            ))
+            .catch(error => console.log(error))
+  }
+  
 
-      }
- 
-    render(){
-        return(
-            <div>
-                {console.log(this.state.peliculas)}
-                
-                {this.state.peliculas.map ((elm,idx) => <CardsContainer actualizarFavoritos={(arr) => this.actualizarFavoritos(arr)}  esFavorito={this.state.favoritos.includes(elm.id)} data= {elm}  key={idx + elm.title}/>)}
-                
-            </div>
-        )
-    }
+  render() {
+    return(
+        <main className="searchContainer">
+          <h2 className="tituloResult">Resultado para: '{this.props.match.params.query}' </h2>
+              {this.state.result.length > 0 ? 
+              <div className="categoria"> 
+              <CardsContainer verMasMovies={this.state.result}/> 
+              </div>
+              : 
+              <h3 className="errorSearch">
+                Disculpe, no pudimos encontrar nincuna pelicula llamada:  "{this.props.match.params.query}"
+              </h3> }
+        </main>
 
+    ) 
+  }
 }
-export default ScreenSearch
+
+export default ScreenSearch;

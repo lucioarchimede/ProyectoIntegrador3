@@ -55,7 +55,7 @@ class Home extends Component {
     return (
       <>
         <main>
-          <Search className ='SearchHome' history = {this.props.history}></Search>
+          <Search/>
           
           <h2>Peliculas populares</h2>
           <div className="titulosHome">
