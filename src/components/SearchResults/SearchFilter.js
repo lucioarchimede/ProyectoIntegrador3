@@ -1,37 +1,61 @@
-import { Component } from "react";
+import React, {Component} from "react"
+import {Link} from 'react-router-dom'
+import './style.css'
 
-class SearchFilter extends Component{
-    constructor(props){
-        super(props)
+class SearchFiltro extends Component {
+    constructor(props) {
+        super(props);
         this.state = {
-            valorInput: ''
-        }
-    }
+          busqueda: "",
+          result: [],
+          backup : []
+        };
+      }
 
-    evitarSubmit(evento){
-        evento.preventDefault()
-    }
+detenerDefault(evento) {
+    evento.preventDefault();
+  }
 
-    guardarValor(evento){
-        this.setState(
-            {
-                valorInput: evento.target.value
-            },
-            () => this.props.filtrarPelicila(this.state.valorInput)
-        )
-    }
+  guardarInput(evento) {
+    this.setState(
+      {
+        busqueda: evento.target.value,
+      },
+      () => this.props.filtrarPeliculas(this.state.busqueda)
+    );
+  }
 
-    render(){
-        return(
-            <>
-            <h2>Mi primer formulario</h2>
-            <form onSubmit={(evento)=> this.evitarSubmit(evento)}>
-                <input onChange={(evento)=> this.guardarValor(evento)} value={this.state.valorInput}/>
-                <button>Enviar formulario</button>
-            </form>
-            </>
-        )
-    }
+  filtrarPeliculas(busqueda){
+    let peliculasFiltradas = this.state.result.filter(
+        (elm)=>elm.name.toLowerCase().includes(busqueda.toLowerCase()))
+        this.setState({
+            result: peliculasFiltradas
+        })
+        this.setState({
+            backup: peliculasFiltradas
+        })
+  } 
+
+render() {
+    return (
+      <div className="search-container">
+      <form onSubmit={(evento) => this.detenerDefault(evento)}>
+        <input
+        className="search-input"
+          type="text"
+          onChange={(evento) => this.guardarInput(evento)}
+          value={this.state.busqueda}
+          placeholder="Busque su pelicula aqui..."
+        />
+        
+        {console.log(this.state.busqueda)}
+      </form>
+      </div>
+    );
+  }
+
+
 }
 
-export default SearchFilter
+
+export default SearchFiltro

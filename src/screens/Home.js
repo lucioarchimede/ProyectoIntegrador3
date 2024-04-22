@@ -16,7 +16,7 @@ class Home extends Component {
   }
   componentDidMount() {
     const url =
-      "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1";
+      "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1";
 
     fetch(url, options)
       .then((res) => res.json())

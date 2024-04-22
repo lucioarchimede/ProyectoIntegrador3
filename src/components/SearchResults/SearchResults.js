@@ -16,7 +16,7 @@ class Search extends Component{
     
     
     saveInput(event){
-        this.setState({busqueda: event.target.busqueda})
+        this.setState({busqueda: event.target.value})
     }
     render(){
         return(

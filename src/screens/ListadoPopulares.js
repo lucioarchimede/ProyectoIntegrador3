@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import PelisPopularCard from "../components/PelisPopularCard/PelisPopularCard";
 import Loader from "../components/Loader/Loader";
+import SearchFiltro from "../components/SearchResults/SearchFilter";
+import { options } from "../utils/constants";
 
 class ListadoTopRated extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      backup: [],
       popular: [],
       EnCartelera: [],
       page: 0,
@@ -13,15 +16,7 @@ class ListadoTopRated extends Component {
     };
   }
   componentDidMount() {
-    console.log('comienzo')
-    const options = {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzk3MTBiYjhkMjU2ZmEyYTI0ZDI0ZGRlODlkYWUzMyIsInN1YiI6IjY2MDZkMzQwNTkwMDg2MDE3Y2I3NjgwOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.oK44zq8dZ4DI3itac_GAI9Bqfcjn_fexUV70dtCVwjY",
-      },
-    };
+    console.log("comienzo");
     const url =
       "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1";
 
@@ -34,8 +29,8 @@ class ListadoTopRated extends Component {
       })
       .catch((err) => console.error("error:" + err));
     fetch(
-      "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1" ,
-        
+      "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
+
       options
     )
       .then((resp) => resp.json())
@@ -49,28 +44,36 @@ class ListadoTopRated extends Component {
     console.log("fin populares");
     console.log("continuar");
   }
-
+  filtrarPeliculas(busqueda){
+    let peliculasFiltradas = this.state.popular.filter(
+        (elm)=>elm.title.toLowerCase().includes(busqueda.toLowerCase()))
+        this.setState({
+            popular: peliculasFiltradas
+        })
+  } 
 
   render() {
     return (
-      <section className="containerCards">
-          {this.state.popular.length === 0 ?
-              < Loader /> :
-              <>
-        
-        {this.state.popular
-          ? this.state.popular.map((pelicula, idx) => {
-              
-                return (
-                  <section className="container--pelis">
-                    {<PelisPopularCard data={pelicula} />}
-                  </section>
-                );
-              
-            })
-          : false}
-          </>}
-      </section>
+      <>
+        <SearchFiltro filtrarPeliculas = {(busqueda) => this.filtrarPeliculas(busqueda)}/>
+        <section className="containerCards">
+          {this.state.popular.length === 0 ? (
+            <Loader />
+          ) : (
+            <>
+              {this.state.popular
+                ? this.state.popular.map((pelicula, idx) => {
+                    return (
+                      <section className="container--pelis">
+                        {<PelisPopularCard data={pelicula} />}
+                      </section>
+                    );
+                  })
+                : false}
+            </>
+          )}
+        </section>
+      </>
     );
   }
 }

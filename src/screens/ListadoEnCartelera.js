@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PelisPopularCard from "../components/PelisPopularCard/PelisPopularCard";
+import { options } from "../utils/constants";
 
 
 
@@ -15,14 +16,7 @@ class ListadoEnCartelera extends Component {
   }
   componentDidMount() {
     console.log('comienzo')
-    const options = {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzk3MTBiYjhkMjU2ZmEyYTI0ZDI0ZGRlODlkYWUzMyIsInN1YiI6IjY2MDZkMzQwNTkwMDg2MDE3Y2I3NjgwOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.oK44zq8dZ4DI3itac_GAI9Bqfcjn_fexUV70dtCVwjY",
-      },
-    };
+    
     const url =
       "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1";
 
@@ -39,7 +33,7 @@ class ListadoEnCartelera extends Component {
 
 
     fetch(
-      "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1" ,
+      "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1" ,
         
       options
     )
@@ -59,6 +53,7 @@ class ListadoEnCartelera extends Component {
 
   render() {
     return (
+      
       <section className="containerCards">
         
         {this.state.popular
