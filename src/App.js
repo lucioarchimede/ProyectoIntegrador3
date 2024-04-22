@@ -35,7 +35,7 @@ function App() {
     <Route path='/populares/' component={ListadoPopulares} />
     <Route path='/cartelera/' component={ListadoEnCartelera} />
     <Route path="/favoritos/id/:id" component={Favoritos}/>
-    <Route path="" component={Notfound}/>
+    <Route path="*" component={Notfound}/>
     <Route path="busqueda/:busqueda" component = {ScreenSearch}/>
     </Switch>
     

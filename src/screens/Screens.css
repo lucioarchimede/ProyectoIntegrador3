@@ -1,6 +1,6 @@
 h1{
   margin-left: 3vw;
-  color: aliceblue;
+  color: black;
   font-family:"Outfit";
   font-weight: bolder;
 }
@@ -25,7 +25,7 @@ h3 {
 
 .tituloResult{
   margin-left: 0vw;
-  color: aliceblue;
+  color: black;
   font-family: 'Outfit';
   font-size: 2vw;
   font-weight: bold;

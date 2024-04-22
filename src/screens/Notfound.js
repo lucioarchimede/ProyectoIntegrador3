@@ -1,21 +1,13 @@
 import React from 'react';
-import Loader from '../components/Loader/Loader';
-
+import "./Screens.css"
 
 const Notfound = () => {
     return(
         <React.Fragment>
-             
-            <h1 className="">
-            {this.state.popular.length === 0 ?
-              < Loader /> :
-              <>
+            <h1 className='notFound'>
                 Error 404 not found
-                </>}
             </h1>
-            
         </React.Fragment>
-    
     )
 }
 
