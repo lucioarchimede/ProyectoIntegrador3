@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import CardsContainer from "../components/CardContainer/CardsContainer";
 
-
-
-
 class Favoritos extends Component {
   constructor(props) {
     super(props);
@@ -16,8 +13,7 @@ class Favoritos extends Component {
 
 
   componentDidMount() {
-    // MOVIES
-    // Recupero el localStorage 
+
     let listaFavoritos = []
     let recuperoStorage = localStorage.getItem('favoritosMovie');
     console.log("REcupero storage ", recuperoStorage);
@@ -30,7 +26,7 @@ class Favoritos extends Component {
     console.log("pelis Fav" + listaFavoritos);
 
 
-    // MOVIES EN FAVORITOS
+
     const options = {
       method: "GET",
       headers: {

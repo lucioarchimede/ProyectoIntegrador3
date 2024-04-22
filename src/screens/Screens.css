@@ -62,3 +62,81 @@ u{
       box-shadow: 0 5px 5px 0px rgba(0, 0, 0, .2);
   }
 }
+/* Estilos para el contenedor principal */
+.detail-main {
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+}
+
+/* Estilos para el póster de la película */
+.detail-poster {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el título de la película */
+.detail-title {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #333;
+}
+
+/* Estilos para la calificación de la película */
+.detail-rating {
+  margin-top: 5px;
+  font-size: 12px;
+  color: #007bff;
+}
+
+/* Estilos para la fecha de estreno */
+.detail-release-date {
+  margin-top: 3px;
+  font-size: 12px;
+  color: #666;
+}
+
+/* Estilos para la duración de la película */
+.detail-runtime {
+  margin-top: 3px;
+  font-size: 12px;
+  color: #666;
+}
+
+/* Estilos para la sinopsis de la película */
+.detail-overview {
+  margin-top: 10px;
+  font-size: 10px;
+  color: #555;
+}
+
+/* Estilos para el género de la película */
+.detail-genre {
+  margin-top: 10px;
+  font-size: 10px;
+  color: #666;
+}
+
+/* Estilos para el enlace de añadir a favoritos */
+.detail-favorites-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+/* Estilos para el enlace de añadir a favoritos al pasar el ratón */
+.detail-favorites-link:hover {
+  background-color: #0056b3;
+}

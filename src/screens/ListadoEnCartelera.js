@@ -49,7 +49,6 @@ class ListadoEnCartelera extends Component {
         this.setState({
           popular: data.results,
         });
-        // console.log('popular: ', data.results.length)
       })
       .catch((err) => console.log(err));
     console.log("fin populares");
