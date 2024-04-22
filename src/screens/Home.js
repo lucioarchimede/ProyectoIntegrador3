@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import CardContainer from "../components/CardContainer/CardsContainer";
 import './Screens.css'
 import Loader from "../components/Loader/Loader";
+import Search from "../components/SearchResults/SearchResults";
 
 class Home extends Component {
   constructor(props) {
@@ -54,6 +55,8 @@ class Home extends Component {
     return (
       <>
         <main>
+          <Search className ='SearchHome' history = {this.props.history}></Search>
+          
           <h2>Peliculas populares</h2>
           <div className="titulosHome">
             {this.state.popular.length === 0 ?
