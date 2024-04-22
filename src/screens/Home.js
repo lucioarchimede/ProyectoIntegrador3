@@ -4,6 +4,7 @@ import CardContainer from "../components/CardContainer/CardsContainer";
 import './Screens.css'
 import Loader from "../components/Loader/Loader";
 import Search from "../components/SearchResults/SearchResults";
+import { options } from "../utils/constants";
 
 class Home extends Component {
   constructor(props) {
@@ -14,14 +15,6 @@ class Home extends Component {
     };
   }
   componentDidMount() {
-    const options = {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzk3MTBiYjhkMjU2ZmEyYTI0ZDI0ZGRlODlkYWUzMyIsInN1YiI6IjY2MDZkMzQwNTkwMDg2MDE3Y2I3NjgwOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.oK44zq8dZ4DI3itac_GAI9Bqfcjn_fexUV70dtCVwjY",
-      },
-    };
     const url =
       "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1";
 

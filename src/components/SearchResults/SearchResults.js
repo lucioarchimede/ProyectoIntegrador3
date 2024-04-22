@@ -6,7 +6,7 @@ class Search extends Component{
     constructor(props){
         super(props);
         this.state = {
-            value: '',
+            busqueda: '',
             result: []
         }
     }
@@ -16,15 +16,15 @@ class Search extends Component{
     
     
     saveInput(event){
-        this.setState({value: event.target.value})
+        this.setState({busqueda: event.target.busqueda})
     }
     render(){
         return(
             <div class="wrap" onSubmit={(evento) => this.detenerDefault(evento)}>
               <div class="search">
                   <input type="text" class="searchTerm" placeholder="Ingresa el titulo de la peli..." onChange={(evento) => this.saveInput(evento)}
-          value={this.state.value}/>
-                  <Link to={`/busqueda/${this.state.value}`}><button type="submit" class="searchButton">
+          busqueda={this.state.busqueda}/>
+                  <Link to={`/busqueda/${this.state.busqueda}`}><button type="submit" class="searchButton">
                     <i class="fa fa-search"></i>
                 </button>
                 </Link>
