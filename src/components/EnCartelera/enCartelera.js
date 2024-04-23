@@ -11,7 +11,7 @@ class EnCartelera extends Component {
     }
 
     componentDidMount() {
-        const url = 'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1';
+        const url = 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1';
         const options = {
             method: 'GET',
             headers: {

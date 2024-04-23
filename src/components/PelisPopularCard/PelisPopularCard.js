@@ -13,7 +13,6 @@ class PelisPopularCard extends Component {
     }
   }
   componentDidMount() {
-    console.log('Soy el componentDidMount pelisPopularCard' )
 
 
   }
@@ -40,8 +39,6 @@ class PelisPopularCard extends Component {
   }
 
   render() {
-    console.log('Soy el render')
-
     return (
       <div className='card-pelis'>
          <img src={this.props.data.poster_path} alt="" />

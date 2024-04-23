@@ -16,7 +16,7 @@ class Home extends Component {
   }
   componentDidMount() {
     const url =
-      "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1";
+      "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1";
 
     fetch(url, options)
       .then((res) => res.json())
@@ -24,7 +24,6 @@ class Home extends Component {
         console.log(json);
         // this.state.lista=json
         this.setState({ EnCartelera: json.results });
-        console.log("enCartelerea: ", json.results.length);
       })
       .catch((err) => console.error("error:" + err));
     fetch(
@@ -33,16 +32,13 @@ class Home extends Component {
     )
       .then((resp) => resp.json())
       .then((data) => {
-        console.log("total populares: ", data.results);
         this.setState({
           popular: data.results,
         });
   
       })
       .catch((err) => console.log(err));
-    console.log("fin populares");
-    console.log("continuar");
-  }
+    }
 
   render() {
     return (
