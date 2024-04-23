@@ -18,7 +18,7 @@ class ListadoEnCartelera extends Component {
     console.log('comienzo')
     
     const url =
-      "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1";
+      "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1";
 
     fetch(url, options)
       .then((res) => res.json())
@@ -57,7 +57,7 @@ class ListadoEnCartelera extends Component {
       <section className="containerCards">
         
         {this.state.popular
-          ? this.state.popular.map((pelicula, idx) => {
+          ? this.state.popular.map((pelicula) => {
               
                 return (
                   <section className="container--pelis">

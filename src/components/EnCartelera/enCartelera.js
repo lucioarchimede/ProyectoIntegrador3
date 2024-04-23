@@ -2,19 +2,16 @@ import React, { Component } from 'react'
 import EnCarteleraCard from '../EnCarteleraCard/enCarteleraCard';
 
 
-
-
 class EnCartelera extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            
             enCartel: []
         }
     }
 
     componentDidMount() {
-        const url = 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1';
+        const url = 'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1';
         const options = {
             method: 'GET',
             headers: {

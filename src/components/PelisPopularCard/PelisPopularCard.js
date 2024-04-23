@@ -49,8 +49,6 @@ class PelisPopularCard extends Component {
         <h2>
         {this.props.data.original_title}
         </h2>
-
-        
         {
           this.state.contenidoOculto ?
             ''
