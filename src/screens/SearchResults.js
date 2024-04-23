@@ -3,6 +3,7 @@ import "./Screens.css";
 import { options } from "../utils/constants";
 import Loader from "../components/Loader/Loader";
 import DetailCard from "../components/DetailCard/detailCard";
+import Search from "../components/SearchResults/SearchResults";
 
 class ScreenSearch extends Component {
   constructor(props) {
@@ -31,6 +32,7 @@ class ScreenSearch extends Component {
   render() {
     return (
       <>
+      <Search/>
         {this.state.result.length > 0 ? 
           <ul className="buscador">
             {this.state.result.map(
