@@ -65,10 +65,11 @@ class Favoritos extends Component {
       
           <h2>MOVIES</h2>
           <h3 className="container">Agrega una película a tus favoritos</h3>
-          <CardsContainer infoMovies={this.state.PelisFav} />
+          <CardsContainer infoMovies={this.state.PelisFav}
+           />
       
 
-
+      
 
         </main>
       </React.Fragment>

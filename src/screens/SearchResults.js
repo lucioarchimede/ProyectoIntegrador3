@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import CardsContainer from "../components/CardContainer/CardsContainer";
 import "./Screens.css";
 import { options } from "../utils/constants";
 import Loader from "../components/Loader/Loader";
@@ -33,10 +32,10 @@ class ScreenSearch extends Component {
     return (
       <>
         {this.state.result.length > 0 ? 
-          <ul className="containerCards">
+          <ul className="buscador">
             {this.state.result.map(
               (resultado) =>
-                  <section className="" id="">
+                  <section className="buscador" id="">
                     <DetailCard
                       id={resultado.id}
                       imagen={resultado.poster_path}
@@ -57,17 +56,3 @@ class ScreenSearch extends Component {
 }
 
 export default ScreenSearch;
-
-{
-  /* <main className="searchContainer">
-          <h2 className="tituloResult">Resultado para: '{this.props.match.params.busqueda}' </h2>
-              {this.state.result.length > 0 ? 
-              <div className="categoria"> 
-              <CardsContainer verMasMovies={this.state.result}/> 
-              </div>
-              : 
-              <h3 className="errorSearch">
-                Disculpe, no pudimos encontrar nincuna pelicula llamada:  "{this.props.match.params.busqueda}"
-              </h3> }
-        </main> */
-}

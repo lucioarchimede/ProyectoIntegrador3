@@ -1,16 +1,16 @@
 .containerHeader {
-    background-color: rgb(230, 230, 238); /* Color de fondo del encabezado */
-    color: rgb(8, 1, 1); /* Color del texto */
-    padding: 20px; /* Espacio interno del encabezado */
+    background-color: rgb(230, 230, 238); 
+    color: rgb(8, 1, 1); 
+    padding: 20px; 
   }
   
   .containerHeader nav ul {
-    list-style-type: none; /* Quita los puntos de la lista */
-    margin: 5; /* Quita el margen */
-    padding: 0; /* Quita el relleno */
+    list-style-type: none; 
+    margin: 5; 
+    padding: 0; 
   }
   
   .containerHeader nav ul li {
-    display: inline; /* Muestra los elementos de la lista en línea */
-    margin-right: 20px; /* Espacio entre los elementos de la lista */
+    display: inline; 
+    margin-right: 20px; 
   }
