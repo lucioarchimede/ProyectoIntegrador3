@@ -21,11 +21,11 @@ detenerDefault(evento) {
       {
         busqueda: evento.target.value,
       },
-      () => this.props.filtrarPeliculas(this.state.busqueda)
+      () => this.props.filtroPeliculas(this.state.busqueda)
     );
   }
 
-  filtrarPeliculas(busqueda){
+  filtroPeliculas(busqueda){
     let peliculasFiltradas = this.state.result.filter(
         (elm)=>elm.name.toLowerCase().includes(busqueda.toLowerCase()))
         this.setState({

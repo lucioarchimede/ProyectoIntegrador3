@@ -10,9 +10,7 @@ class ListadoTopRated extends Component {
     this.state = {
       backup: [],
       popular: [],
-      EnCartelera: [],
-      page: 0,
-      max: props.max,
+      page: 1,
     };
   }
   componentDidMount() {
@@ -44,7 +42,17 @@ class ListadoTopRated extends Component {
     console.log("fin populares");
     console.log("continuar");
   }
-  filtrarPeliculas(busqueda){
+  traerMasPelis(){
+    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=7384aa0b23ce68ba408f9921ee711e62&page=${(this.state.page + 1)}`)
+    .then(res => res.json())
+        .then(data => this.setState({
+            popular : this.state.popular.concat(data.results),
+            page: this.state.page + 1,
+            backup : this.state.backup.concat(data.results)
+        }))
+        .catch(err => console.log(err))
+    }
+  filtroPeliculas(busqueda){
     let peliculasFiltradas = this.state.popular.filter(
         (elm)=>elm.title.toLowerCase().includes(busqueda.toLowerCase()))
         this.setState({
@@ -55,7 +63,7 @@ class ListadoTopRated extends Component {
   render() {
     return (
       <>
-        <SearchFiltro filtrarPeliculas = {(busqueda) => this.filtrarPeliculas(busqueda)}/>
+        <SearchFiltro filtroPeliculas = {(busqueda) => this.filtroPeliculas(busqueda)}/>
         <section className="containerCards">
           {this.state.popular.length === 0 ? (
             <Loader />
@@ -70,6 +78,7 @@ class ListadoTopRated extends Component {
                     );
                   })
                 : false}
+                <button  className="Ver-mas" onClick={()=>this.traerMasPelis()}> Mas pelis populares</button>
             </>
           )}
         </section>

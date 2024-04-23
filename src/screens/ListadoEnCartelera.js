@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import PelisPopularCard from "../components/PelisPopularCard/PelisPopularCard";
 import { options } from "../utils/constants";
+import SearchFiltro from "../components/SearchResults/SearchFilter";
+import Loader from "../components/Loader/Loader";
+import EnCarteleraCard from "../components/EnCarteleraCard/enCarteleraCard";
 
 
 
@@ -8,10 +10,9 @@ class ListadoEnCartelera extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      popular: [],
+      backup:[],
       EnCartelera: [],
-      page: 0,
-      max: props.max,
+      page: 1,
     };
   }
   componentDidMount() {
@@ -41,34 +42,56 @@ class ListadoEnCartelera extends Component {
       .then((data) => {
         console.log("total populares: ", data.results);
         this.setState({
-          popular: data.results,
+          EnCartelera: data.results,
         });
       })
       .catch((err) => console.log(err));
     console.log("fin populares");
     console.log("continuar");
   }
-
-
+  traerMasPelis(){
+    fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=7384aa0b23ce68ba408f9921ee711e62&page=${(this.state.page + 1)}`)
+    .then(res => res.json())
+        .then(data => this.setState({
+            EnCartelera : this.state.EnCartelera.concat(data.results),
+            page: this.state.page + 1,
+            backup : this.state.backup.concat(data.results)
+        }))
+        .catch(err => console.log(err))
+    }
+    
+  filtroPeliculas(busqueda){
+    let peliculasFiltradas = this.state.EnCartelera.filter(
+        (elm)=>elm.title.toLowerCase().includes(busqueda.toLowerCase()))
+        this.setState({
+            EnCartelera: peliculasFiltradas
+        })
+  } 
 
   render() {
     return (
-      
+      <>
+      <SearchFiltro filtroPeliculas = {(busqueda) => this.filtroPeliculas(busqueda)}/>
       <section className="containerCards">
-        
-        {this.state.popular
-          ? this.state.popular.map((pelicula) => {
-              
-                return (
-                  <section className="container--pelis">
-                    {<PelisPopularCard data={pelicula} />}
-                  </section>
-                );
-              
-            })
-          : false}
-           
-      </section>
+      {this.state.EnCartelera.length === 0 ? (
+            <Loader />
+          ) : (
+            <>
+              {this.state.EnCartelera
+                ? this.state.EnCartelera.map((pelicula, idx) => {
+                    return (
+                      <section className="container--pelis">
+                        {<EnCarteleraCard data={pelicula} />}
+                      </section>
+                    );
+                  })
+                : false}
+                <button  className="Ver-mas" onClick={()=>this.traerMasPelis()}> Mas pelis En cartelera</button> 
+            </>
+          )}
+        </section>
+      </>
+      
     );
   }
 }
